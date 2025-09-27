@@ -1,8 +1,8 @@
 ﻿namespace personalfinancetrackerbackend.Model
 {
-    internal class UserModel
+    internal class AdminModel
     {
-        private int user_id;
+        private int admin_id;
         private string firstName;
         private string lastName;
         private string username;
@@ -10,17 +10,5 @@
         private string hashed_password;
         private DateTime createdAt;
         private DateTime updatedAt;
-
-        internal String FirstName
-        {
-            get
-            {
-                return firstName;
-            }
-            set
-            {
-                firstName = value;
-            }
-        }
     }
 }
