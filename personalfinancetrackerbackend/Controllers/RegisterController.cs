@@ -24,7 +24,7 @@ namespace personalfinancetrackerbackend.Controllers
             
         }
 
-        private bool doesPasswordAndConfirmPasswordMathc(string password, string confirmPassword)
+        private bool doesPasswordAndConfirmPasswordMatch(string password, string confirmPassword)
         {
             if (password == confirmPassword) return true;
             return false;
@@ -38,6 +38,13 @@ namespace personalfinancetrackerbackend.Controllers
                 return BadRequest(ModelState);
             }
             //do some checks
+            var password = ModelState?["password"].RawValue.ToString();
+            var confirmPassword = ModelState?["confirmPassword"].RawValue.ToString();
+
+            if (!doesPasswordAndConfirmPasswordMatch(password, confirmPassword))
+            {
+                return BadRequest();
+            }
             return Ok();
         }
     }

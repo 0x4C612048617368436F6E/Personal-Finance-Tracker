@@ -2,7 +2,7 @@
 using System.ComponentModel.DataAnnotations.Schema;
 namespace personalfinancetrackerbackend.Model
 {
-    internal class AccountModel
+    public class UserRoleModel
     {
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
@@ -10,7 +10,7 @@ namespace personalfinancetrackerbackend.Model
         [Required]
         private int userId;
         [Required]
-        private int balance;
+        private int roleId;
 
         internal int Id
         {
@@ -32,15 +32,15 @@ namespace personalfinancetrackerbackend.Model
             }
         }
 
-        internal int Balance
+        internal int RoleId
         {
             get
             {
-                return balance;
+                return roleId;
             }
             set
             {
-                balance = value;
+                roleId = value;
             }
         }
     }

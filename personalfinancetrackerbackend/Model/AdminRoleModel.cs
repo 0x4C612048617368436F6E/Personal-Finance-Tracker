@@ -2,15 +2,15 @@
 using System.ComponentModel.DataAnnotations.Schema;
 namespace personalfinancetrackerbackend.Model
 {
-    internal class AccountModel
+    public class AdminRoleModel
     {
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         private int id;
         [Required]
-        private int userId;
-        [Required]
-        private int balance;
+        private int adminId;
+        [Required] 
+        private int roleId;
 
         internal int Id
         {
@@ -18,30 +18,35 @@ namespace personalfinancetrackerbackend.Model
             {
                 return id;
             }
-        }
-
-        internal int UserId
-        {
-            get
-            {
-                return userId;
-            }
             set
             {
-                userId = value;
+                id = value;
             }
         }
 
-        internal int Balance
+        internal int AdminId
         {
             get
             {
-                return balance;
+                return adminId;
             }
             set
             {
-                balance = value;
+                adminId = value;
             }
         }
+
+        internal int RoleId
+        {
+            get
+            {
+                return roleId;
+            }
+            set
+            {
+                roleId = value;
+            }
+
     }
+
 }
