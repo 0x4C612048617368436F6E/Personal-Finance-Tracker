@@ -2,7 +2,7 @@
 
 namespace personalfinancetrackerbackend.Model.ModelDTO
 {
-    internal class UserModelDTO
+    public class UserModelDTO
     {
         [Required]
         private string firstName;

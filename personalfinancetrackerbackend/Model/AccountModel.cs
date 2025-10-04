@@ -2,25 +2,41 @@
 using System.ComponentModel.DataAnnotations.Schema;
 namespace personalfinancetrackerbackend.Model
 {
-    internal class AccountModel
+    [Table("account")]
+    public class AccountModel
     {
+        [Column("account_id")]
+        [Required]
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        private int id;
-        [Required]
-        private int userId;
-        [Required]
-        private int balance;
+        public int id;
 
-        internal int Id
+        [Column("user_id")]
+        [Required]
+        public int userId;
+
+        [Column("balance")]
+        [Required]
+        public int balance;
+
+        [ForeignKey("user_id")]
+        public UserModel user;
+
+        public List<TransactionModel> userTransactions;
+
+        public int Id
         {
             get
             {
                 return id;
             }
+            set
+            {
+                id = value;
+            }
         }
 
-        internal int UserId
+        public int UserId
         {
             get
             {
@@ -32,7 +48,7 @@ namespace personalfinancetrackerbackend.Model
             }
         }
 
-        internal int Balance
+        public int Balance
         {
             get
             {
@@ -41,6 +57,18 @@ namespace personalfinancetrackerbackend.Model
             set
             {
                 balance = value;
+            }
+        }
+
+        public UserModel User
+        {
+            get
+            {
+                return user;
+            }
+            set
+            {
+                user = value;
             }
         }
     }

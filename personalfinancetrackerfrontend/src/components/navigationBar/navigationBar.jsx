@@ -52,7 +52,7 @@ const NavigationBar = () => {
               <div className="flex space-x-4">
                 <Link
                   to="/"
-                  className="rounded-md bg-gray-900 px-3 py-2 text-sm font-medium text-white"
+                  className="rounded-md bg-gradient-to-tr from-indigo-600 to-indigo-400 px-3 py-2 text-sm font-medium text-white"
                 >
                   Dashboard
                 </Link>
@@ -60,13 +60,13 @@ const NavigationBar = () => {
                   href="/"
                   className="rounded-md px-3 py-2 text-sm font-medium"
                 >
-                  Team
+                  Home
                 </a>
                 <a
                   href="#"
                   className="rounded-md px-3 py-2 text-sm font-medium"
                 >
-                  Projects
+                  About
                 </a>
                 <a
                   href="#"

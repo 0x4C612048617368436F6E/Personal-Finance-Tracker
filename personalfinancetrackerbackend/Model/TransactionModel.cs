@@ -2,29 +2,47 @@
 using System.ComponentModel.DataAnnotations.Schema;
 namespace personalfinancetrackerbackend.Model
 {
-    internal class TransactionModel
+    [Table("transaction")]
+    public class TransactionModel
     {
+        [Required]
+        [Column("transaction_id")]
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         private int id;
+
+        [Column("account_id")]
         [Required]
         private int accountId;
+
+        [Column("amount")]
         [Required]
         private float amount;
+
+        [Column("transaction_date")]
         [Required]
         private DateTime transactionDate;
-        [Required]
-        private string transactionDescription;
 
-        internal int Id
+        [Column("transaction_description")]
+        [Required]
+        private string transactionDescription="";
+
+        [ForeignKey("account_id")]
+        public AccountModel userAccount;
+
+        public int Id
         {
             get
             {
                 return id;
             }
+            set
+            {
+                id = value;
+            }
         }
 
-        internal int AccountId
+        public int AccountId
         {
             get
             {
@@ -36,7 +54,7 @@ namespace personalfinancetrackerbackend.Model
             }
         }
 
-        internal float Amount
+        public float Amount
         {
             get
             {
@@ -48,7 +66,7 @@ namespace personalfinancetrackerbackend.Model
             }
         }
 
-        internal DateTime TransactionDate
+        public DateTime TransactionDate
         {
             get
             {
@@ -60,7 +78,7 @@ namespace personalfinancetrackerbackend.Model
             }
         }
 
-        internal string TransactionDescription
+        public string TransactionDescription
         {
             get
             {
@@ -69,6 +87,18 @@ namespace personalfinancetrackerbackend.Model
             set
             {
                 transactionDescription = value;
+            }
+        }
+
+        public AccountModel UserAccount
+        {
+            get
+            {
+                return userAccount;
+            }
+            set
+            {
+                userAccount = value;
             }
         }
 

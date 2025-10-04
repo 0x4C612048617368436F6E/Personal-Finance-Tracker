@@ -10,11 +10,11 @@
             }
             else if(logTag == "warning")
             {
-                Console.WriteLine(string.Concat("INFO - ", message))
+                Console.WriteLine(string.Concat("INFO - ", message));
             }
             else if(logTag == "error")
             {
-                Console.WriteLine(string.Concat("INFO - ", message))
+                Console.WriteLine(string.Concat("INFO - ", message));
             }
             else
             {

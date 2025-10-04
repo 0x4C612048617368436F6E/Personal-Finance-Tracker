@@ -1,16 +1,24 @@
 import { FaUserCircle } from "react-icons/fa";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import DropDown from "../dropDown/dropDown";
 const UserDropdown = () => {
   const [isOpen, setIsOpen] = useState(false);
   const toggle = () => {
     setIsOpen((prev) => !prev);
   };
+  useEffect(() => {
+    //How is this going to work?
+    //When the user DropDown is active, isOpen is false
+    //Check if there is a mouseDown event
+    //If mouseDown Event is true and isOpen is true,
+    //Then we will need to set the isOpen to false
+    //and also remove the
+  }, []);
   return (
     <div className="relative">
       <button
         onClick={() => toggle()}
-        className="flex items-center text-gray-700 dropdown-toggle dark:text-gray-400"
+        className="flex items-center text-gray-700 dropdown-toggle dark:text-gray-400 cursor-pointer"
       >
         <span className="mr-3 overflow-hidden rounded-full h-11 w-11">
           <FaUserCircle size={40} />
@@ -36,7 +44,7 @@ const UserDropdown = () => {
           />
         </svg>
       </button>
-      <DropDown />
+      {isOpen ? <DropDown /> : <></>}
     </div>
   );
 };

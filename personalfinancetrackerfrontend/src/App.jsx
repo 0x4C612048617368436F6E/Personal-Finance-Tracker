@@ -4,7 +4,7 @@ import Layout from "./components/layout/layout";
 import ErrorPage from "./components/errorPage/errorPage";
 import Login from "./components/login/login";
 import Register from "./components/register/register";
-
+import OverView from "./components/overview/overview";
 const App = () => {
   return (
     <BrowserRouter>
@@ -13,11 +13,8 @@ const App = () => {
           <Route index element={<SplashScreen />} />
           <Route path="login" element={<Login page="login" />} />
           <Route path="register" element={<Register page="register" />} />
-          <Route
-            path="password-recovery"
-            element={<Register page="register" />}
-          />
-          <Route path="overview" element={<Register page="register" />} />
+          <Route path="password-recovery" element={<Register />} />
+          <Route path="overview" element={<OverView />} />
           <Route path="*" element={<ErrorPage />} />
         </Route>
       </Routes>

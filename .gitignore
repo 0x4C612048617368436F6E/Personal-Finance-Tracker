@@ -452,7 +452,5 @@ FodyWeavers.xsd
 *.msix
 *.msm
 *.msp
-./personalfinancetrackerbackend/appsettings.Development.json
-personalfinancetrackerbackend/appsettings.Development.json
-personalfinancetrackerbackend/appsettings.json
-./personalfinancetrackerbackend/appsettings.json
+./personalfinancetrackerbackend/*.json
+personalfinancetrackerbackend/*.json

@@ -3,27 +3,45 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace personalfinancetrackerbackend.Model
 {
-    internal class BudgetModel
+    [Table("budget")]
+    public class BudgetModel
     {
+        [Column("budget_id")]
+        [Required]
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        private int id;
-        [Required]
-        private float amount;
-        [Required]
-        private int userId;
-        [Required]
-        private int categoryId;
+        public int id;
 
-        internal int Id
+        [Column("amount")]
+        [Required]
+        public float amount;
+
+        [Column("user_id")]
+        [Required]
+        public int userId;
+
+        [Column("category_id")]
+        [Required]
+        public int categoryId;
+
+        [ForeignKey("categoryId")]
+        public CategoryModel category;
+
+        [ForeignKey("userId")]
+        public UserModel user;
+        public int Id
         {
             get
             {
                 return id;
             }
+            set
+            {
+                id = value;
+            }
         }
 
-        internal float Amount
+        public float Amount
         {
             get
             {
@@ -31,7 +49,7 @@ namespace personalfinancetrackerbackend.Model
             }
         }
 
-        internal int UserId
+        public int UserId
         {
             get
             {
@@ -43,7 +61,7 @@ namespace personalfinancetrackerbackend.Model
             }
         }
 
-        internal int CategoryId
+        public int CategoryId
         {
             get
             {
@@ -52,6 +70,30 @@ namespace personalfinancetrackerbackend.Model
             set
             {
                 categoryId = value;
+            }
+        }
+
+        public UserModel User
+        {
+            get
+            {
+                return user;
+            }
+            set
+            {
+                user = value;
+            }
+        }
+
+        public CategoryModel Category
+        {
+            get
+            {
+                return category;
+            }
+            set
+            {
+                category = value;
             }
         }
     }

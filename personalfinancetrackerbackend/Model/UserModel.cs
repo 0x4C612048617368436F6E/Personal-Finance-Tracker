@@ -2,41 +2,64 @@
 using System.ComponentModel.DataAnnotations.Schema;
 namespace personalfinancetrackerbackend.Model
 {
-    internal class UserModel
+    [Table("user")]
+    public class UserModel
     {
+        [Column("user_id")]
+        [Required]
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        private int id;
+        public int id;
+
+        [Column("first_name")]
         [Required]
-        private string firstName;
+        public string firstName;
+
+        [Column("last_name")]
         [Required]
-        private string lastName;
+        public string lastName;
+
+        [Column("user_name")]
         [Required]
-        private string userName;
+        public string userName;
+
+        [Column("email")]
         [Required]
         [EmailAddress]
-        private string email;
-        [Required]
-        private string hashedPassword;
-        [Required]
-        private DateTime createdAt;
-        [Required]
-        private DateTime updatedAt;
+        public string email;
 
-        internal UserModel() { 
+        [Column("hashed_password")]
+        [Required]
+        public string hashedPassword;
+
+        [Column("created_at")]
+        [Required]
+        public DateTime createdAt;
+
+        [Column("updated_at")]
+        [Required]
+        public DateTime updatedAt;
+
+        public List<AccountModel> userAccounts;
+
+        public UserModel() { 
             this.createdAt = DateTime.Now;
             this.updatedAt = DateTime.Now;
         }
 
-        internal int Id
+        public int Id
         {
             get
             {
                 return id;
             }
+            set
+            {
+                id = value;
+            }
         }
 
-        internal String FirstName
+        public String FirstName
         {
             get
             {
@@ -48,7 +71,7 @@ namespace personalfinancetrackerbackend.Model
             }
         }
 
-        internal String LastName
+        public String LastName
         {
             get
             {
@@ -60,7 +83,7 @@ namespace personalfinancetrackerbackend.Model
             }
         }
 
-        internal String UserName
+        public String UserName
         {
             get
             {
@@ -72,7 +95,7 @@ namespace personalfinancetrackerbackend.Model
             }
         }
 
-        internal String Email
+        public String Email
         {
             get
             {
@@ -84,7 +107,7 @@ namespace personalfinancetrackerbackend.Model
             }
         }
 
-        internal String HashedPassword
+        public String HashedPassword
         {
             get
             {
@@ -93,6 +116,18 @@ namespace personalfinancetrackerbackend.Model
             set
             {
                 hashedPassword = value;
+            }
+        }
+
+        public List<AccountModel> UserAccounts
+        {
+            get
+            {
+                return userAccounts;
+            }
+            set
+            {
+                userAccounts = value;
             }
         }
 

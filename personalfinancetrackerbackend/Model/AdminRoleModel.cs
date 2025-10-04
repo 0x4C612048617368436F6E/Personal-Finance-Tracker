@@ -2,17 +2,30 @@
 using System.ComponentModel.DataAnnotations.Schema;
 namespace personalfinancetrackerbackend.Model
 {
+    [Table("admin_role")]
     public class AdminRoleModel
     {
+        [Required]
+        [Column("admin_role_id")]
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        private int id;
-        [Required]
-        private int adminId;
-        [Required] 
-        private int roleId;
+        public int id;
 
-        internal int Id
+        [Column("admin_id")]
+        [Required]
+        public int adminId;
+
+        [Column("role_id")]
+        [Required] 
+        public int roleId;
+
+        [ForeignKey("admin_id")]
+        public AdminModel admin;
+
+        [ForeignKey("role_id")]
+        public List<RoleModel> adminRole;
+
+        public int Id
         {
             get
             {
@@ -24,7 +37,7 @@ namespace personalfinancetrackerbackend.Model
             }
         }
 
-        internal int AdminId
+        public int AdminId
         {
             get
             {
@@ -36,7 +49,7 @@ namespace personalfinancetrackerbackend.Model
             }
         }
 
-        internal int RoleId
+        public int RoleId
         {
             get
             {
@@ -46,6 +59,30 @@ namespace personalfinancetrackerbackend.Model
             {
                 roleId = value;
             }
+        }
+        public List<RoleModel> AdminRole
+        {
+            get
+            {
+                return adminRole;
+            }
+            set
+            {
+                adminRole = value;
+            }
+        }
+
+        public AdminModel Admin
+        {
+            get
+            {
+                return admin;
+            }
+            set
+            {
+                admin = value;
+            }
+        }
 
     }
 
